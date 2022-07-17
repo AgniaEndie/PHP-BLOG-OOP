@@ -25,7 +25,7 @@ class UserRegistry
             return true;
         }
         else{
-            return false;
+            throw new Exception("Registry Error");
         }
 
     }

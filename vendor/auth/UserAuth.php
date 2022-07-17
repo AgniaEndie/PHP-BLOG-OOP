@@ -19,7 +19,9 @@ class UserAuth{
             $this->auth_message = true;
             return true;
         }else{
-            return false;
+            //return false;
+            throw new Exception("User Not found");
+            //return false;
         }
 
 

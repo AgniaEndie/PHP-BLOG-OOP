@@ -2,12 +2,14 @@
 ini_set('display_errors','1');
 ini_set('display_startup_errors','1');
 error_reporting(E_ALL);
+
 //include_once ("Config.ini");
 include_once("vendor/database/Database.php");
 include_once("theme/assets/styles.php");
 include('vendor/notifications/Notifications.php');
 include('vendor/auth/UserRegistry.php');
 include('vendor/auth/UserAuth.php');
+include('vendor/blog/Post.php');
 //include('vendor/notifications/templates/Notification.template');
 include('theme/header/header.php');
 //$data =new Database("localhost","endie","Quantum228","portfolio");
@@ -50,28 +52,36 @@ if($_POST['sign_in'] == "Войти"){
             "login"=>$login
         );
     }else{
-        echo "-";
+        echo $responce;
     }
 }
 
-echo $_SESSION['user']['login'];
+$post = new Post();
+$check = $post->createPost("new title","","","","","","",false);
+echo $check;
 
-
-
-
-
-
-
-
-
-//echo $_SERVER['DOCUMENT_ROOT'].'/Config.ini';
-$db = new Database();
-//$db_use = $db->__construct();
-$result = $db->queryResult("SELECT * FROM `users`");
-$row = $result->fetch_array();
-echo $row[1];
 require('theme/assets/js/js.php');
 include('theme/footer/footer.php');
+
+
+
+/**
+ob_start();
+require $_SERVER['DOCUMENT_ROOT']."/vendor/template/Template.php";
+
+if(isset($_GET['route']) && $_GET['route'] == 'post'){
+    $tmpl = new Template("Post");
+    $tmpl->render();
+
+}
+
+$content = ob_get_clean();
+
+$tmpl = new Template('Post');
+//$tmpl->assign('content', $content);
+
+$tmpl->render();**/
+
 ?>
 
 

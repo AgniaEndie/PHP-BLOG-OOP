@@ -22,6 +22,10 @@
                         <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#sign_in_modal">Войти</a></li>
 
                 <?php
+                    }else{
+                        ?>
+                        <li class="nav-item"><a class="nav-link" href="/profile.php"><?= $_SESSION['user']['login']; ?></a></li>
+                        <?php
                     }
 
 
