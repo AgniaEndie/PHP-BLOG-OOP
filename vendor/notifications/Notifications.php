@@ -5,7 +5,7 @@ class Notifications
 
     public function sendNormalMessage( $content,  $title)
     {
-        //$page = file_get_contents( '/templates/Notification.tpl');
+        //$page = file_get_contents( '/templates/Notification.template');
         //$page->str_replace(array('%title%','%content%'), array($title,$content), '$page');
         //return $page;
         //return "a";
@@ -15,11 +15,11 @@ class Notifications
 
         /*$replace = array('{title}', '{content}');
         $with = array($title,$content);
-        $template = __DIR__.'/templates/Notification.tpl';
-        $content = file_get_contents($template);
+        $theme = __DIR__.'/templates/Notification.template';
+        $content = file_get_contents($theme);
         str_replace($replace,$with,$content);
         return $content;*/
-        //$notification = '/vendor/notifications/templates/Notification.tpl';
+        //$notification = '/vendor/notifications/templates/Notification.template';
         $notification = file_get_contents( );
         $notification = str_replace("{title}", $title,$notification);
         return $notification;
