@@ -1,4 +1,11 @@
 <div>
     hello!
     {title}
+    {category}
+    {id}
+    {author}
+    {icon}
+    {pictures}
+    {content}
+    {adult}
 </div>

@@ -2,11 +2,10 @@
 ini_set('display_errors','1');
 ini_set('display_startup_errors','1');
 error_reporting(E_ALL);
-
 //include_once ("Config.ini");
 include_once("vendor/database/Database.php");
 include_once("theme/assets/styles.php");
-include('vendor/notifications/Notifications.php');
+include('vendor/notifications/BlogNotification.php');
 include('vendor/auth/UserRegistry.php');
 include('vendor/auth/UserAuth.php');
 include('vendor/blog/Post.php');
@@ -57,13 +56,14 @@ if($_POST['sign_in'] == "Войти"){
 }
 
 $post = new Post();
-$check = $post->createPost("new title","","","","","","",false);
+$check = $post->createPost("new title","category","0",$_SESSION['user']['login'],"icon","pic","It's Content!",false);
 echo $check;
 
 require('theme/assets/js/js.php');
 include('theme/footer/footer.php');
 
-
+$notification = new BlogNotification();
+echo $notification->sendNotification("New Notification","Success!",0);
 
 /**
 ob_start();
