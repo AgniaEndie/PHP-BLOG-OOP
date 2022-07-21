@@ -34,19 +34,19 @@ class BlogNotification
             $this->tpl_file = str_replace($this->search,$this->replace,$this->tpl_file);
             switch ($this->type){
                 case 0:
-                    $this->tpl_file = str_replace("{type}","alert alert-success" ,$this->tpl_file);
+                    $this->tpl_file = str_replace("{type}","alert alert-success alert-dismissible fade show" ,$this->tpl_file);
                     $this->tpl_file = str_replace("{error_content}",null,$this->tpl_file);
                     break;
                 case 1:
-                    $this->tpl_file = str_replace("{type}","alert alert-danger" ,$this->tpl_file);
+                    $this->tpl_file = str_replace("{type}","alert alert-danger alert-dismissible fade show" ,$this->tpl_file);
                     $this->tpl_file = str_replace("{error_content}",null,$this->tpl_file);
                     break;
                 case 2:
-                    $this->tpl_file = str_replace("{type}","alert alert-warning" ,$this->tpl_file);
+                    $this->tpl_file = str_replace("{type}","alert alert-warning alert-dismissible fade show" ,$this->tpl_file);
                     $this->tpl_file = str_replace("{error_content}",null,$this->tpl_file);
                     break;
                 case 3:
-                    $this->tpl_file = str_replace("{type}","alert alert-primary" ,$this->tpl_file);
+                    $this->tpl_file = str_replace("{type}","alert alert-primary alert-dismissible fade show" ,$this->tpl_file);
                     $this->tpl_file = str_replace("{error_content}",null,$this->tpl_file);
                     break;
                 default:
